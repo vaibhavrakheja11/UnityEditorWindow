@@ -34,14 +34,6 @@ namespace EditorWindowAssignment
 
         void OnGUI()
         {
-            // GUILayout.Label("Base Settings", EditorStyles.boldLabel);
-            // myString = EditorGUILayout.TextField("Text Field", myString);
-
-            // groupEnabled = EditorGUILayout.BeginToggleGroup("Optional Settings", groupEnabled);
-            // myBool = EditorGUILayout.Toggle("Toggle", myBool);
-            // myFloat = EditorGUILayout.Slider("Slider", myFloat, -3, 3);
-            // EditorGUILayout.EndToggleGroup();
-
             tick = Resources.Load("tick", typeof(Texture2D)) as Texture2D;
             cross = Resources.Load("cross", typeof(Texture2D)) as Texture2D;
 
@@ -53,11 +45,6 @@ namespace EditorWindowAssignment
     
             EditorGUILayout.PropertyField(serialProp, true);
             serialObj.ApplyModifiedProperties();
-
-            
-
-
-            vec3 = EditorGUILayout.Vector3Field("placement position:", vec3);
 
             if(m_scriptableObjData != null)
             {
@@ -93,8 +80,8 @@ namespace EditorWindowAssignment
                     }
                     else
                     {
-                        if(EditorUtility.DisplayDialog("Place Selection On Surface?",
-                        "Are you sure you want to place on the surface?", "Place", "Do Not Place"))
+                        if(EditorUtility.DisplayDialog("Oops! Not Found!",
+                        "Do you want to generate the object in the current scene?", "Yes", "No"))
                         {
                             tempobj = (GameObject)Instantiate(obj, vec3, Quaternion.identity);
 
