@@ -15,12 +15,9 @@ namespace EditorWindowAssignment
         Vector3 vec3 = new Vector3(0,0,0);
         GameObject tempobj = null;
 
-        Texture2D tick;
+        Texture2D m_tick;
 
-        Texture2D cross;
-
-        Texture2D image;
-
+        Texture2D m_cross;
 
         // Add menu named "My Window" to the Window menu
         [MenuItem("Window/My Window")]
@@ -34,55 +31,65 @@ namespace EditorWindowAssignment
 
         void OnGUI()
         {
-            tick = Resources.Load("tick", typeof(Texture2D)) as Texture2D;
-            cross = Resources.Load("cross", typeof(Texture2D)) as Texture2D;
+            // Load textures sprites
+            m_tick = Resources.Load("tick", typeof(Texture2D)) as Texture2D;
+            m_cross = Resources.Load("cross", typeof(Texture2D)) as Texture2D;
+
 
             ScriptableObject scriptableObj = this;
             SerializedObject serialObj = new SerializedObject(scriptableObj);
             SerializedProperty serialProp = serialObj.FindProperty("m_scriptableObjData");
-
-        
     
             EditorGUILayout.PropertyField(serialProp, true);
             serialObj.ApplyModifiedProperties();
 
+            // Generate GUI for objects
             if(m_scriptableObjData != null)
             {
                 GenerateGUI(m_scriptableObjData.sharedObjects);
                 GenerateGUI(m_scriptableObjData.testingTimelineAndInfractions);
                 GenerateGUI(m_scriptableObjData.HazardTimelines);
             }
-            
         }
 
         void GenerateGUI(GameObject[] list)
         {
             foreach(var obj in list)
             {
-                image  = null;
+                // Begin Layout Row
                 GUILayout.BeginHorizontal("box");
+
+                //Generate Label for GameObject Name
                 GUILayout.Label(obj.name);
+
+                
                 var tempObj = GameObject.Find(obj.name);
                 if(tempObj!= null)
                 {
-                    GUILayout.Label(tick, GUILayout.MaxWidth(20f), GUILayout.MaxHeight(20f));
+                    // GameObject Found
+                    GUILayout.Label(m_tick, GUILayout.MaxWidth(20f), GUILayout.MaxHeight(20f));
                 }
                 else
                 {
-                    GUILayout.Label(cross, GUILayout.MaxWidth(20f), GUILayout.MaxHeight(20f));
+                    // GameObject Not Found
+                    GUILayout.Label(m_cross, GUILayout.MaxWidth(20f), GUILayout.MaxHeight(20f));
                 }
+
+                // Generate the Validate Button
                 if(GUILayout.Button("Validate"))
                 {
-                    
+                    // GameObject found check 
                     if(tempObj!= null)
                     {
             
                     }
                     else
                     {
+                        // Generate the dialog box
                         if(EditorUtility.DisplayDialog("Oops! Not Found!",
                         "Do you want to generate the object in the current scene?", "Yes", "No"))
                         {
+                            // Instantiate the game object
                             tempobj = (GameObject)Instantiate(obj, vec3, Quaternion.identity);
 
                             // TODO:: Figure out a system to spawn this as the child object of the parent.
@@ -91,6 +98,7 @@ namespace EditorWindowAssignment
                         }
                     }
                 }
+                // End Layout row
                 GUILayout.EndHorizontal();
             }
         }
