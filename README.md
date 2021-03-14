@@ -1,6 +1,9 @@
 # UnityEditorWindow
 
-## Unity Version : 2019.4.12F1
+## Versions
+#### Unity Version : 2019.4.12F1
+#### Oculus XR Version : 1.4.3
+#### XR PluginManagement : 3.2.16
 
 ## Details:
 
@@ -18,7 +21,9 @@
 - Clicking Yes would generate the object, clicking no would silently pass
 - The panel will display a cross if the object is not present inside the scene, and would display a green check if the Object is present inside the scene
 
-### Scene - CustomHands
-- Scene contains custom OVRCameraRig
-- Left and Right hands are replaced with Red and Blue cube respectively
+### Scene - VRScene, CustomHands
+- Scene is Setup for Default OVR Hand Interaction controls
+- Scene also contains CustomOVRCameraRig which is disabled by default
+- CustomOVRCameraRig - Left and Right hands are replaced with Red and Blue cube respectively
+- Pressing the grab button on controller would enlarge the cubes if they generate very small
 - The Project was tested on Oculus Quest 2
