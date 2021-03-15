@@ -29,7 +29,7 @@
 - The Project was tested on Oculus Quest 2
 
 ## Screenshots
-![Alt text](/Screenshots/Screen Shot 2021-03-14 at 6.07.38 PM.png?raw=true "Objects not found")
+![Alt text](Screenshots/Screen Shot 2021-03-14 at 6.07.38 PM.png?raw=true "Objects not found")
 
 ![Alt text](/Screenshots/Screen Shot 2021-03-14 at 6.16.30 PM.png?raw=true "Some Objects Found")
 
