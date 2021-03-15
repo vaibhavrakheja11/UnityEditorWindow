@@ -27,3 +27,11 @@
 - CustomOVRCameraRig - Left and Right hands are replaced with Red and Blue cube respectively
 - Pressing the grab button on controller would enlarge the cubes if they generate very small
 - The Project was tested on Oculus Quest 2
+
+## Screenshots
+![Alt text](/Screenshots/Screen Shot 2021-03-14 at 6.07.38 PM.png?raw=true "Objects not found")
+
+![Alt text](/Screenshots/Screen Shot 2021-03-14 at 6.16.30 PM.png?raw=true "Some Objects Found")
+
+![Alt text](/Screenshots/Screen Shot 2021-03-14 at 6.17.05 PM.png?raw=true "Genrate Object dialog box")
+
